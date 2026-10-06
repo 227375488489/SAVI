@@ -65,9 +65,9 @@ body.menu-open{overflow:hidden}
    ========================================================= */
 .hero{
   position:relative;
-  min-height:min(66dvh,600px);   /* было 92dvh / 850px — уменьшено почти вдвое */
+  min-height:min(66dvh,600px);
   display:flex;
-  align-items:flex-end;          /* контент прижат к низу, пустоты сверху нет */
+  align-items:flex-end;
   color:#fff;
   overflow:hidden;
   background:#05070A;
@@ -101,10 +101,12 @@ body.menu-open{overflow:hidden}
   height:100%;
   object-fit:cover;
   object-position:left center;
-  filter:brightness(1.04) contrast(.97) saturate(1.05);
-  transform:scale(1.02);
+  filter:brightness(1.12) contrast(.97) saturate(1.05);
+  transform:scale(1.18) translateX(6%);
+  transform-origin:left center;
 }
 
+/* ОДНА и та же тень для ПК и мобилки */
 .hero-media:after{
   content:"";
   position:absolute;
@@ -130,7 +132,7 @@ body.menu-open{overflow:hidden}
   width:100%;
   max-width:var(--max);
   margin-inline:auto;
-  padding:3rem 2rem 3rem;        /* было 7rem сверху → срезано вдвое */
+  padding:3rem 2rem 3rem;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -188,8 +190,7 @@ body.menu-open{overflow:hidden}
 
 @media(max-width:949px){
   .hero{min-height:min(62dvh,560px)}
-  .hero-media{width:46%}
-  .hero-media img{object-position:left center}
+  .hero-media{width:50%}
   .hero-content{padding:2.25rem 1.5rem 2.25rem}
   .hero h1{font-size:clamp(2.2rem,6.2vw,3.4rem);max-width:11ch}
   .hero-sub{font-size:1rem;max-width:26rem}
@@ -197,34 +198,27 @@ body.menu-open{overflow:hidden}
   .hero-metric strong{font-size:1.7rem}
 }
 
+/* На мобилке фото-панель чуть уже, но тень — та же самая */
 @media(max-width:620px){
   .hero{
-    min-height:min(64dvh,540px);   /* было 88dvh / 760px — почти вдвое меньше */
+    min-height:min(64dvh,540px);
     align-items:flex-end;
   }
   .hero:before{
     mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 88%);
     -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 88%);
   }
-  .hero-media{width:52%;}
-  .hero-media img{object-position:left center;}
-  .hero-media:after{
-    background:
-      linear-gradient(90deg,
-        #05070A 0%,
-        #05070A 22%,
-        rgba(5,7,10,.92) 34%,
-        rgba(5,7,10,.55) 54%,
-        rgba(5,7,10,.18) 80%,
-        rgba(5,7,10,.14) 100%),
-      linear-gradient(0deg,
-        rgba(5,7,10,.85) 0%,
-        rgba(5,7,10,.4) 45%,
-        rgba(5,7,10,.05) 82%,
-        transparent 100%);
+  .hero-media{
+    width:50%;
   }
+  .hero-media img{
+    object-position:left center;
+    transform:scale(1.22) translateX(4%);
+    transform-origin:left center;
+  }
+  /* Тень — идентична десктопной, ничего не переопределяем */
   .hero-content{
-    padding:1.75rem 1.25rem 2rem;   /* было 5.5rem сверху — в 3 раза меньше */
+    padding:1.75rem 1.25rem 2rem;
   }
   .hero h1{
     font-size:clamp(1.85rem,8vw,2.55rem);
@@ -247,12 +241,15 @@ body.menu-open{overflow:hidden}
 
 @media(max-width:420px){
   .hero-media{width:48%}
-  .hero-media img{object-position:left center}
+  .hero-media img{
+    object-position:left center;
+    transform:scale(1.25) translateX(3%);
+    transform-origin:left center;
+  }
   .hero h1{font-size:clamp(1.7rem,8.6vw,2.3rem)}
   .hero-sub{font-size:.88rem;max-width:16rem}
 }
 /* ===================== /Hero ===================== */
-
 /* Marquee signal bar */
 .signal-bar{overflow:hidden;background:var(--cyan);color:#000;border-top:1px solid #000;border-bottom:1px solid #000}.signal-track{display:flex;gap:2rem;width:max-content;padding:.75rem 0;animation:marquee 30s linear infinite}.signal-item{display:flex;align-items:center;gap:1rem;font-size:.68rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}.signal-item:after{content:"✦";font-size:.8rem}
 
