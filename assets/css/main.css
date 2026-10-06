@@ -1,4 +1,3 @@
-/* SAVI 2026 — premium static redesign. Brand: #32B5FF + #000000. */
 :root{
   --cyan:#32B5FF;
   --cyan-soft:#DDF3FF;
@@ -63,8 +62,19 @@ body.menu-open{overflow:hidden}
 
 /* Hero */
 .hero{position:relative;min-height:min(92dvh,850px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#05070A}
-.hero-bg{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center;transform:scale(1.01);transition:transform 1.4s var(--ease)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,10,.9) 0%,rgba(5,7,10,.52) 48%,rgba(5,7,10,.18) 100%),linear-gradient(0deg,rgba(5,7,10,.88) 0%,rgba(5,7,10,.2) 52%,rgba(5,7,10,.05) 100%)}
+.hero-bg{
+  position:absolute;inset:-2%;width:104%;height:104%;
+  object-fit:cover;object-position:center;
+  transform:scale(1.01);
+  transition:transform 1.4s var(--ease);
+  filter:brightness(1.18) contrast(0.97) saturate(1.05);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,7,10,.72) 0%,rgba(5,7,10,.4) 48%,rgba(5,7,10,.12) 100%),
+    linear-gradient(0deg,rgba(5,7,10,.72) 0%,rgba(5,7,10,.18) 52%,rgba(5,7,10,.04) 100%);
+}
 .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 20%,rgba(50,181,255,.22),transparent 28%),repeating-linear-gradient(135deg,transparent 0 46px,rgba(255,255,255,.04) 47px 48px);opacity:.8;pointer-events:none}
 .hero-content{position:relative;z-index:2;width:100%;padding:7.2rem 0 4rem;animation:fadeUp .85s var(--ease) both}
 .hero-topline{display:flex;justify-content:space-between;align-items:center;gap:1rem;max-width:1000px;margin-bottom:1.2rem;color:rgba(255,255,255,.62);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.eyebrow-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.04)}.eyebrow-pill:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px rgba(50,181,255,.14)}
